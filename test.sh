@@ -26,7 +26,7 @@ Install_php(){
 Install_caddy(){
 	bit=`uname -m`
 	if [[ -e ${caddy_file} ]]; then
-		echo && echo -e "${Red}[信息]${Font} 检测到 Caddy 已安装，是否继续安装(覆盖更新)？[y/N]"
+		echo && echo  "[信息] 检测到 Caddy 已安装，是否继续安装(覆盖更新)？[y/N]"
 		stty erase '^H' && read -p "(默认: n):" yn
 		[[ -z ${yn} ]] && yn="n"
 		if [[ ${yn} == [Nn] ]]; then
@@ -46,12 +46,12 @@ Install_caddy(){
 	elif [[ ${bit} == "x86_64" ]]; then
 		wget --no-check-certificate -O "caddy_linux.tar.gz" "https://caddyserver.com/download/linux/amd64?license=personal" && caddy_bit="caddy_linux_amd64"
 	else
-		echo -e "${Red}[错误]${Font} 不支持 ${bit} !" && exit 1
+		echo -e "[错误] 不支持 ${bit} !" && exit 1
 	fi
-	[[ ! -e "caddy_linux.tar.gz" ]] && echo -e "${Red}[错误]${Font} Caddy 下载失败 !" && exit 1
+	[[ ! -e "caddy_linux.tar.gz" ]] && echo  "[错误] Caddy 下载失败 !" && exit 1
 	tar zxf "caddy_linux.tar.gz"
 	rm -rf "caddy_linux.tar.gz"
-	[[ ! -e ${caddy_file} ]] && echo -e "${Red}[错误]${Font} Caddy 解压失败或压缩文件错误 !" && exit 1
+	[[ ! -e ${caddy_file} ]] && echo  "[错误] Caddy 解压失败或压缩文件错误 !" && exit 1
 	rm -rf LICENSES.txt
 	rm -rf README.txt 
 	rm -rf CHANGES.txt

@@ -84,6 +84,8 @@ Install_oneindex(){
 
 Install_skicka(){
 	wget --no-check-certificate -p /usr/bin/ https://raw.githubusercontent.com/FuaerCN/sh/master/skicka/skicka chmod +x /usr/bin/skicka
+	skicka init
+	skicka -no-browser-auth ls
 }
 
 main(){

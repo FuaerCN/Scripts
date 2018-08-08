@@ -83,7 +83,8 @@ Install_oneindex(){
 }
 
 Install_skicka(){
-	wget --no-check-certificate -p /usr/bin/ https://raw.githubusercontent.com/FuaerCN/sh/master/skicka/skicka chmod +x /usr/bin/skicka
+	cd /usr/bin/
+	wget --no-check-certificate https://raw.githubusercontent.com/FuaerCN/sh/master/skicka/skicka && chmod -R 755 /usr/bin/skicka
 	skicka init
 	skicka -no-browser-auth ls
 }

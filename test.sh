@@ -2,6 +2,7 @@
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
 apt-get install -y ca-certificates
+Crontab_file="/usr/bin/crontab"
 caddyfile="/usr/local/caddy/"
 caddy_file="/usr/local/caddy/caddy"
 caddy_conf_file="/usr/local/caddy/Caddyfile"
@@ -81,6 +82,8 @@ Install_oneindex(){
 	mv /home/oneindex-master /home/oneindex
 	chown www-data:www-data -R /home/oneindex/*
 	rm -rf /home/oneindex.zip
+	echo "0 * * * * php /home/oneindex/one.php token:refresh
+*/10 * * * * php /home/oneindex/one.php cache:refresh" >> /var/spool/cron/crontabs/root
 }
 
 Install_skicka(){

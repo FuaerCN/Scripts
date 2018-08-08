@@ -77,6 +77,7 @@ Install_aria2ng(){
 
 Install_oneindex(){
     cd /home/ && wget --no-check-certificate -O oneindex.zip https://codeload.github.com/donwa/oneindex/zip/master && unzip oneindex.zip
+	rm -rf /home/oneindex
 	mv /home/oneindex-master /home/oneindex
 	chown www-data:www-data -R /home/oneindex/*
 	rm -rf /home/oneindex.zip

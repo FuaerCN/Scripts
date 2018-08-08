@@ -1,0 +1,31 @@
+http://yum.pw {
+	timeouts none
+	gzip
+	#tls admin@yum.pw
+	root /home/www
+}
+
+http://dl.yum.pw {
+	timeouts none
+	gzip
+	#tls admin@yum.pw
+	root /home/AriaNg
+}
+
+http://pan.yum.pw {
+	timeouts none
+	gzip
+	#tls admin@yum.pw
+	root /home/oneindex
+	fastcgi / /run/php/php7.0-fpm.sock php
+	rewrite {
+		if {path} not_match ^\/admin
+		to {path} {path}/ /index.php?{query}
+	}
+}
+
+
+#Caddy绑定IP                                :80 {  }
+#申请Let's Encrypt证书                      tls admin@yum.pw
+#使用已有SSL证书                            tls /root/xxx.crt /root/xxx.key
+#Caddy的超时时间机制导致下载文件频繁中断    timeouts none

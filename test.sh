@@ -79,6 +79,11 @@ Install_oneindex(){
     cd /home/ && wget --no-check-certificate -O oneindex.zip https://codeload.github.com/donwa/oneindex/zip/master && unzip oneindex.zip
 	mv /home/oneindex-master /home/oneindex
 	chown www-data:www-data -R /home/oneindex/*
+	rm -rf /home/oneindex.zip
+}
+
+Install_skicka(){
+	wget --no-check-certificate -p /usr/bin/ https://raw.githubusercontent.com/FuaerCN/sh/master/skicka/skicka chmod +x /usr/bin/skicka
 }
 
 main(){
@@ -87,6 +92,7 @@ main(){
 	Install_aria2
 	Install_aria2ng
 	Install_oneindex
+	Install_skicka
 }
 
 main

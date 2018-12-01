@@ -1,5 +1,5 @@
 # Debian/Ubuntu/CentOS 网络安装/重装系统/纯净安装 一键脚本
-##文章来源：[Moeclub](https://moeclub.org/2018/04/03/603/) 
+## 文章来源：[Moeclub](https://moeclub.org/2018/04/03/603/) 
 
 ## 背景:
 - 适用于由GRUB引导的CentOS,Ubuntu,Debian系统.

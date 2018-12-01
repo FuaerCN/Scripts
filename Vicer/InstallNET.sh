@@ -325,7 +325,8 @@ if [[ "$SpikCheckDIST" == '0' ]]; then
 fi
 
 [[ "$ddMode" == '1' ]] && {
-  export SSL_SUPPORT='https://moeclub.org/get-wget_udeb_amd64';
+  #export SSL_SUPPORT='https://moeclub.org/get-wget_udeb_amd64';
+  export SSL_SUPPORT='https://raw.githubusercontent.com/FuaerCN/Shell/master/Vicer/wget_udeb_amd64.tar.gz';
   if [[ -n "$tmpURL" ]]; then
     DDURL="$tmpURL"
     echo "$DDURL" |grep -q '^http://\|^ftp://\|^https://';

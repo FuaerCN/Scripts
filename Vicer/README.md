@@ -1,4 +1,5 @@
-# 一个逗比写的逗比脚本
+# Debian/Ubuntu/CentOS 网络安装/重装系统/纯净安装 一键脚本
+##文章来源：[Moeclub](https://moeclub.org/2018/04/03/603/) 
 
 ## 背景:
 - 适用于由GRUB引导的CentOS,Ubuntu,Debian系统.
@@ -15,6 +16,21 @@
 - 目前CentOS系统只支持任意版本重装为 CentOS 6.x 及以下版本.
 - 特别注意:OpenVZ构架不适用.
 
+## 依赖包:
+```
+#二进制文件    Debian/Ubuntu    RedHat/CentOS
+iconv         [libc-bin]       [glibc-common]
+xz            [xz-utils]       [xz]
+awk           [gawk]           [gawk]
+sed           [sed]            [sed]
+file          [file]           [file]
+grep          [grep]           [grep]
+openssl       [openssl]        [openssl]
+cpio          [cpio]           [cpio]
+gzip          [gzip]           [gzip]
+cat,cut..     [coreutils]      [coreutils]
+```
+
 ## 确保安装了所需软件:
 ## Debian/Ubuntu:
 - apt-get install -y xz-utils openssl gawk file
@@ -27,9 +43,11 @@ bash <(wget --no-check-certificate -qO- 'https://raw.githubusercontent.com/Fuaer
 ```
 
 ## 下载及说明:
-```
+``` bash
 wget --no-check-certificate -qO InstallNET.sh 'https://raw.githubusercontent.com/FuaerCN/Shell/master/Vicer/InstallNET.sh' && chmod a+x InstallNET.sh
+```
 
+```
 Usage:
         bash InstallNET.sh      -d/--debian [dist-name]
                                 -u/--ubuntu [dist-name]

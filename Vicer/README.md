@@ -71,3 +71,23 @@ bash InstallNET.sh -c 6.9 -v 64 -a --mirror 'http://mirror.centos.org/centos'
 #使用自定义网络参数全自动dd方式安装存储在谷歌网盘中的镜像
 #bash InstallNET.sh --ip-addr x.x.x.x --ip-gate x.x.x.x --ip-mask x.x.x.x -dd "$(echo "https://drive.google.com/open?id=1cqVl2wSGx92UTdhOxU9pW3wJgmvZMT_J" |xargs -n1 bash <(wget --no-check-certificate -qO- 'https://moeclub.org/get-gdlink'))"
 ```
+
+## 一些提示:
+- 特别注意:
+  萌咖提供的dd安装镜像
+  远程登陆账号为: Administrator
+  远程登陆密码为: Vicer
+  仅修改了主机名,可放心使用.(建议自己制作.)
+
+- 在dd安装系统镜像时:
+  在你的机器上全新安装,如果你有VNC,可以看到全部过程.
+  在dd安装镜像的过程中,不会走进度条(进度条一直显示为0%).完成后将会自动重启.
+  分区界面标题一般显示为: “Starting up the partitioner“
+  使用谷歌网盘中储存的镜像: [无限制大小] 获取谷歌网盘文件临时直接下载链接
+
+- 在全自动安装CentOS时:
+ 如果看到 “Starting graphical installation” 或者类似表达,则表示正在安装.
+ 正常情况下只需要耐心等待安装完成即可.
+ 如果需要查看进度,使用VNC Viewer(或者其他VNC连接工具)
+ 连接提示中的IP地址:端口进行连接.(端口一般为1或者5901)
+ 

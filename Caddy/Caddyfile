@@ -1,21 +1,23 @@
-http://yum.pw {
+https://yum.pw {
 	timeouts none
 	gzip
-	#tls admin@yum.pw
+	tls admin@yum.pw
 	root /home/www
+	fastcgi / /run/php/php7.0-fpm.sock php
 }
 
-http://dl.yum.pw {
+https://dl.yum.pw {
 	timeouts none
 	gzip
-	#tls admin@yum.pw
+	tls admin@yum.pw
 	root /home/AriaNg
+	fastcgi / /run/php/php7.0-fpm.sock php
 }
 
-http://pan.yum.pw {
+https://pan.yum.pw {
 	timeouts none
 	gzip
-	#tls admin@yum.pw
+	tls admin@yum.pw
 	root /home/oneindex
 	fastcgi / /run/php/php7.0-fpm.sock php
 	rewrite {

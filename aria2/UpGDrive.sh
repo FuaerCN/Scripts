@@ -1,6 +1,6 @@
 #!/bin/bash
 path=$3
-downloadpath='/home/AriaNg/Download'
+downloadpath='/root/Download'
 if [ $2 -eq 0 ]
         then
                 exit 0

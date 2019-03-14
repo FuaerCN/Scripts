@@ -1,6 +1,6 @@
 #!/bin/bash
 path=$3
-downloadpath='/root/Download'
+downloadpath='/home/AriaNg/Download'
 if [ $2 -eq 0 ]
         then
                 exit 0
@@ -16,11 +16,11 @@ extension=${filepath##*.}
 if [[ $extension = "zip" ]] ; then 
 	echo "解压 ZIP"
 	unzip -o -d $filename $filepath
-	#/usr/bin/php /home/oneindex/one.php upload:folder "$filename"/ /Aria2/"${filename##*/}"/
+	#/usr/bin/php /home/OneIndex/one.php upload:folder "$filename"/ /Aria2/"${filename##*/}"/
 	skicka upload "$filename"/ /Aria2/"${filename##*/}"/
 	#rm -rf "$filepath" "$filename"
 	rm -rf "$filename"
-	echo '解压文件上传'$path >> /root/UpDrive.log
+	echo '解压文件上传'$path >> /root/.aria2/UpDrive.log
 	
 elif [[ $extension = "rar11" ]] ; then 
 	echo "解压 RAR"
@@ -36,17 +36,17 @@ fi
 path=${path%/*};
 if [ "$path" = "$downloadpath" ] && [ $2 -eq 1 ]  #如果下载的是单个文件
     then
-	#/usr/bin/php /home/oneindex/one.php upload:file "$filepath" /Aria2/
+	#/usr/bin/php /home/OneIndex/one.php upload:file "$filepath" /Aria2/
 	skicka upload "$filepath" /Aria2
     rm -rf "$filepath"
-	echo '删除上传完成'$filepath >> /root/UpDrive.log
+	echo '删除上传完成'$filepath >> /root/.aria2/UpDrive.log
     exit 0
 elif [ "$path" = "$downloadpath" ]   #文件夹
     then
-	#/usr/bin/php /home/oneindex/one.php upload:folder "$filepath"/ /Aria2/"${filepath##*/}"/
+	#/usr/bin/php /home/OneIndex/one.php upload:folder "$filepath"/ /Aria2/"${filepath##*/}"/
 	skicka upload "$filepath"/ /Aria2/"${filepath##*/}"/
     rm -rf "$filepath"/
-	echo '删除上传完成'$filepath >> /root/UpDrive.log
+	echo '删除上传完成'$filepath >> /root/.aria2/UpDrive.log
     exit 0
 fi
 done

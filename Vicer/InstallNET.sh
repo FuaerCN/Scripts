@@ -230,7 +230,7 @@ if [[ "$isMirror" == '1' ]]; then
 fi
 
 if [[ -z "$DISTMirror" ]]; then
-  [[ "$linuxdists" == 'debian' ]] && MirrorHost='deb.debian.org' && MirrorFolder='/debian' && DISTMirror="${MirrorHost}${MirrorFolder}";
+  [[ "$linuxdists" == 'debian' ]] && MirrorHost='snapshot.debian.org' && MirrorFolder='/archive/debian/20190321T212815Z' && DISTMirror="${MirrorHost}${MirrorFolder}";
   [[ "$linuxdists" == 'ubuntu' ]] && MirrorHost='archive.ubuntu.com' && MirrorFolder='/ubuntu' && DISTMirror="${MirrorHost}${MirrorFolder}";
   [[ "$linuxdists" == 'centos' ]] && DISTMirror='vault.centos.org';
 fi
@@ -670,6 +670,7 @@ d-i mirror/country string manual
 d-i mirror/http/hostname string $MirrorHost
 d-i mirror/http/directory string $MirrorFolder
 d-i mirror/http/proxy string
+d-i apt-setup/services-select multiselect
 
 d-i passwd/root-login boolean ture
 d-i passwd/make-user boolean false

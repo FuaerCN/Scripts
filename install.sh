@@ -17,7 +17,7 @@ systemctl restart sshd
 
 version_tag=$(curl -Ls "https://api.github.com/repos/SagerNet/sing-box/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
 download_tag=$(echo $version_tag | sed "s/v//g")
-wget -N --no-check-certificate https://github.com/SagerNet/sing-box/releases/download/$version_tag/sing-box_"$download_tag"_linux_amd64.deb
+wget -qN --no-check-certificate https://github.com/SagerNet/sing-box/releases/download/$version_tag/sing-box_"$download_tag"_linux_amd64.deb
 dpkg -i sing-box_"$download_tag"_linux_amd64.deb
 rm -f sing-box_"$download_tag"_linux_amd64.deb
 cat <<EOF > /etc/sing-box/config.json

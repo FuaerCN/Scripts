@@ -36,4 +36,5 @@ cat <<EOF > /etc/sing-box/config.json
   ]
 }
 EOF
+systemctl enable sing-box
 systemctl start sing-box

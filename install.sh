@@ -25,13 +25,7 @@ cat <<EOF > /etc/sing-box/config.json
   "inbounds": [
     {
       "type": "socks",
-      "listen_port": 2408,
-      "users": [
-        {
-          "username": "admin",
-          "password": "yeasty"
-        }
-      ]
+      "listen_port": 2408
     }
   ]
 }

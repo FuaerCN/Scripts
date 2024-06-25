@@ -15,13 +15,13 @@ function System-Settings {
 
     Write-Host "Change Virtual RAM ..."
     Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects" -Name 'VisualFXSetting' -Value 2
-    #$computerSystem = Get-WmiObject -Class Win32_ComputerSystem -EnableAllPrivileges
-    #$computerSystem.AutomaticManagedPagefile = $false
-    #$computerSystem.Put() | Out-Null
-    #$pageFileSetting = Get-WmiObject -Class Win32_PageFileSetting
-    #$pageFileSetting.InitialSize = 20000
-    #$pageFileSetting.MaximumSize = 30000
-    #$pageFileSetting.Put() | Out-Null
+    $computerSystem = Get-WmiObject -Class Win32_ComputerSystem -EnableAllPrivileges
+    $computerSystem.AutomaticManagedPagefile = $false
+    $computerSystem.Put() | Out-Null
+    $pageFileSetting = Get-WmiObject -Class Win32_PageFileSetting
+    $pageFileSetting.InitialSize = 20000
+    $pageFileSetting.MaximumSize = 30000
+    $pageFileSetting.Put() | Out-Null
 
     Write-Host "Never check for updates (not recommended)"
     New-Item HKLM:\SOFTWARE\Policies\Microsoft\Windows -Name WindowsUpdate 2>&1>$null

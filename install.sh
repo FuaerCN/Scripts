@@ -18,7 +18,7 @@ sed -i "s@.*\(PasswordAuthentication \).*@\1no@" /etc/ssh/sshd_config
 systemctl restart sshd
 
 last_version=$(curl -s "https://api.github.com/repos/SagerNet/sing-box/releases/latest" | grep -Po '"name": "\K.*?(?=")' | head -n 1)
-curl -sLo sing-box.deb https://github.com/SagerNet/sing-box/releases/download/v"$last_version"/sing-box_"$last_version"_linux_amd64.deb
+curl -sLo sing-box.deb https://github.com/SagerNet/sing-box/releases/latest/download/sing-box_"$last_version"_linux_amd64.deb
 dpkg -i sing-box.deb
 rm -f sing-box.deb
 cat <<EOF > /etc/sing-box/config.json
